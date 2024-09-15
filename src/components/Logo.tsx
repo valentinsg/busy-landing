@@ -8,7 +8,7 @@ const Logo: React.FC = () => {
 
   return (
     <Image
-      w="850px"
+      w="750px"
       src={colorMode === 'light' ? LogoLight : LogoDark}
       alt="Logo Busy"
       style={{ opacity: '1', transition: 'opacity 0.5s ease' }}

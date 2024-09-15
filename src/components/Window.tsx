@@ -4,9 +4,10 @@ import { Box } from '@chakra-ui/react';
 interface WindowProps {
   children: ReactNode;
   fadeTime: number;  // Tiempo personalizado de fade
+  height?: string; // Altura personalizada
 }
 
-const Window: React.FC<WindowProps> = ({ children, fadeTime }) => {
+const Window: React.FC<WindowProps> = ({ children, fadeTime, height }) => {
   const [scrollY, setScrollY] = useState<number>(0);
 
   const handleScroll = () => {
@@ -24,7 +25,7 @@ const Window: React.FC<WindowProps> = ({ children, fadeTime }) => {
 
   return (
     <Box
-      height="100vh"
+      height= {height}
       display="flex"
       justifyContent="center"
       alignItems="center"

@@ -33,6 +33,7 @@ const theme = extendTheme({
   fonts: {
     buttons: "Helvetica, sans-serif",
     heading: "Roboto, sans-serif",
+    text: "Helvetica, sans-serif",
   },
 });
 

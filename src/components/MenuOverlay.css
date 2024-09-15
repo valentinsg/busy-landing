@@ -1,0 +1,5 @@
+.menu-overlay {
+    backdrop-filter: blur(8px); /* Difuminado del fondo */
+    background-color: rgba(0, 0, 0, 0.8); /* Color de fondo */
+    transition: backdrop-filter 0.3s ease; /* Transición suave */
+  }
