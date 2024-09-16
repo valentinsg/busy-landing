@@ -1,6 +1,7 @@
 import React from 'react';
-import { Box, Text, VStack, useDisclosure } from '@chakra-ui/react';
+import { Box, Button, VStack, Text } from '@chakra-ui/react';
 import './MenuOverlay.css';
+import { Link } from 'react-router-dom';
 
 interface MenuOverlayProps {
   isOpen: boolean;
@@ -13,24 +14,39 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
   return (
     <Box
       position="fixed"
-      top={0}
-      left={0}
-      width="100vw"
-      height="100vh"
+      top="0"
+      left="0"
+      width="100%"
+      height="100%"
       bg="rgba(0, 0, 0, 0.8)"
-      zIndex={2}
+      zIndex={20}
       display="flex"
+      flexDirection="column"
       justifyContent="center"
       alignItems="center"
       className='menu-overlay'
     >
       <VStack spacing={6} color="white" textAlign="center">
-        <Text fontSize="2xl" cursor="pointer" onClick={onClose}>Roadmap de la Marca</Text>
-        <Text fontSize="2xl" cursor="pointer" onClick={onClose}>Procesos</Text>
-        <Text fontSize="2xl" cursor="pointer" onClick={onClose}>Comunidad</Text>
-        <Text fontSize="2xl" cursor="pointer" onClick={onClose}>Colabora con Nosotros</Text>
-        <Text fontSize="2xl" cursor="pointer" onClick={onClose}>Visión de Futuro</Text>
-        <Text fontSize="2xl" cursor="pointer" onClick={onClose}>Espacio para Feedback</Text>
+        <Button variant="ghost" onClick={onClose} color="white" mb={4}>
+          Cerrar Menú
+        </Button>
+        <Text fontSize="2xl" cursor="pointer"><Link to="/roadmap" onClick={onClose}>Roadmap de la Marca</Link></Text>
+        <Text fontSize="2xl" cursor="pointer"><Link to="/procesos" onClick={onClose}>Procesos</Link></Text>
+        <Text fontSize="2xl" cursor="pointer"><Link to="/comunidad"   onClick={onClose}>Comunidad</Link></Text>
+        <Text fontSize="2xl" cursor="pointer"><Link to="/colabora"  onClick={onClose}>Colabora con Nosotros</Link></Text>
+        <Text fontSize="2xl" cursor="pointer"><Link to="/vision-futuro"  onClick={onClose}>Visión de Futuro</Link></Text>
+        <Text fontSize="2xl" cursor="pointer"><Link to="/feedback" onClick={onClose}>Espacio para Feedback</Link></Text>
+
+      <div className="menu">
+        <div className="row1">
+          <button className="menu-item top-left">Menu 1</button>
+          <button className="menu-item top-right">Menu 2</button>
+        </div>
+        <div className="row2">
+          <button className="menu-item bottom-left">Menu 3</button>
+          <button className="menu-item bottom-right">Menu 4</button>
+        </div>
+      </div>
       </VStack>
     </Box>
   );

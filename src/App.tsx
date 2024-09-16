@@ -1,25 +1,32 @@
-import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Box } from '@chakra-ui/react';
 import Header from './components/Header';
-import Window from './components/Window';
-import Logo from './components/Logo';
-import TextScroll from './components/TextScroll';
+import Home from './pages/Home';
+import Roadmap from './pages/Roadmap';
+import Procesos from './pages/Procesos';
+import Comunidad from './pages/Comunidad';
+import Colabora from './pages/Colabora';
+import Feedback from './pages/Feedback';
+import VisionFuturo from './pages/VisionFuturo';
+import React from 'react';
 
-const App: React.FC = () => {
+
+function App() {
   return (
-    <Box display={"flex"} flexDir={"column"} minHeight="100vh" overflow="hidden" sx={{ '&::-webkit-scrollbar': { display: 'none' } }}>
-      <Header />
-      {/* Pasamos un tiempo personalizado a cada Window */}
-      <Window fadeTime={200} height='625px'>
-        <Logo />
-       </Window>
-      <Window fadeTime={800} height='200px'>
-        <TextScroll text="Bienvenido a Busy, la marca para los que nunca se detienen." />
-      </Window>
-      <Window fadeTime={1000} height='400px'>
-        <TextScroll text="Explora nuestros productos únicos." />
-      </Window>
-    </Box>
+    <Router>
+      <Box>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/roadmap" element={<Roadmap />} />
+          <Route path="/procesos" element={<Procesos />} />
+          <Route path="/comunidad" element={<Comunidad />} />
+          <Route path="/colabora" element={<Colabora />} />
+          <Route path="/vision-futuro" element={<VisionFuturo />} />
+          <Route path="/feedback" element={<Feedback />} />
+        </Routes>
+      </Box>
+    </Router>
   );
 }
 
