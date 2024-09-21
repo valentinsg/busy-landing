@@ -1,39 +1,51 @@
 import React from 'react';
-import { Box, IconButton, useColorMode, useDisclosure } from '@chakra-ui/react';
+import { Box, Flex, useColorMode, useDisclosure } from '@chakra-ui/react';
 import MenuOverlay from './MenuOverlay';
 import './DarkModeButton.css';
+import MenuButton from './MenuButton';
+import SocialButtons from './SocialButtons';
 
 
-const Header: React.FC = () => {
+const Header = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  // Función que controla el toggle del menú
+  const handleMenuToggle = () => {
+    if (isOpen) {
+      onClose();
+    } else {
+      onOpen();
+    }
+  };
+
   return (
     <Box
-      m={10}
+      mt={14}
+      mx={10}
       position="fixed"
-      zIndex={1}
       display="flex"
       w={"90vw"}
       justifyContent="space-between"
-      alignItems="center"
+      zIndex={998}
     >
-      <Box className="toggle-switch" >
-        <label className={`switch-label ${colorMode === 'light' ? 'light-mode' : 'dark-mode'}`}>
-          <input  onClick={toggleColorMode} type="checkbox" className="checkbox" checked={colorMode === 'dark'} readOnly />
-          <span className="slider"></span>
-        </label>
-      </Box>
-      
-      {/* Botón para desplegar el menú */}
-      <IconButton
-        aria-label="Open menu"
-        onClick={onOpen}
-        bg="transparent"
-        _hover={{ bg: 'none' }}
-      />
 
-      {/* Menú Overlay */}
+        <Flex flexDir={"column"} alignItems={"center"}>
+
+        {/* Botón para el modo oscuro */}
+        <Box className="toggle-switch">
+          <label className={`switch-label ${colorMode === 'light' ? 'light-mode' : 'dark-mode'}`}>
+            <input onClick={toggleColorMode} type="checkbox" className="checkbox" checked={colorMode === 'dark'} readOnly />
+            <span className="slider"></span>
+          </label>
+        </Box>
+
+        <SocialButtons />
+      </Flex >
+
+      {/* Botón del menú */}
+      <MenuButton onClick={handleMenuToggle} />
+      {/* Menú */}
       <MenuOverlay isOpen={isOpen} onClose={onClose} />
     </Box>
   );

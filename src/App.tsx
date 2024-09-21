@@ -5,7 +5,6 @@ import Home from './pages/Home';
 import Roadmap from './pages/Roadmap';
 import Procesos from './pages/Procesos';
 import Comunidad from './pages/Comunidad';
-import Colabora from './pages/Colabora';
 import Feedback from './pages/Feedback';
 import VisionFuturo from './pages/VisionFuturo';
 import React from 'react';
@@ -21,7 +20,6 @@ function App() {
           <Route path="/roadmap" element={<Roadmap />} />
           <Route path="/procesos" element={<Procesos />} />
           <Route path="/comunidad" element={<Comunidad />} />
-          <Route path="/colabora" element={<Colabora />} />
           <Route path="/vision-futuro" element={<VisionFuturo />} />
           <Route path="/feedback" element={<Feedback />} />
         </Routes>

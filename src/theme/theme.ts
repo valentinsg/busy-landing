@@ -10,7 +10,6 @@ const theme = extendTheme({
     brand: {
       dark: "#555454",    // Color dark mode
       light: "#d0d0d0",   // Color light mode
-      accent: "#3182ce",  // Un color de acento
       textLight: "#ffffff", // Texto en modo oscuro
       textDark: "#000000",  // Texto en modo claro
     },

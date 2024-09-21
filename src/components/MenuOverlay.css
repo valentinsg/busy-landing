@@ -4,47 +4,4 @@
     transition: backdrop-filter 0.3s ease; /* Transición suave */
   }
 
-  .menu {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-    align-items: center;
-  }
-  
-  .row1, .row2 {
-    display: flex;
-    gap: 0.5em;
-  }
-  
-  .menu-item {
-    width: 100px;
-    height: 100px;
-    outline: none;
-    border: none;
-    background: white;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .menu-item.top-left {
-    border-radius: 50px 0 0 0; /* Redondeo en la esquina superior izquierda */
-  }
-  
-  .menu-item.top-right {
-    border-radius: 0 50px 0 0; /* Redondeo en la esquina superior derecha */
-  }
-  
-  .menu-item.bottom-left {
-    border-radius: 0 0 0 50px; /* Redondeo en la esquina inferior izquierda */
-  }
-  
-  .menu-item.bottom-right {
-    border-radius: 0 0 50px 0; /* Redondeo en la esquina inferior derecha */
-  }
-  
-  .menu-item:hover {
-    transform: scale(1.05);
-    background-color: #f0f0f0;
-  }
   
