@@ -1,64 +1,56 @@
-import { Box, Heading, Text, HStack } from '@chakra-ui/react';
-import { FaCoins, FaCogs, FaExchangeAlt, FaFileContract } from 'react-icons/fa';
+import { Box, Heading, Text, HStack, Tooltip, useBreakpointValue } from '@chakra-ui/react';
 import React from 'react';
 
 const Timeline = () => {
-  const steps = [
-    { title: 'Lanzamiento de la moneda', icon: FaCoins },
-    { title: 'Desarrollo de la plataforma', icon: FaCogs },
-    { title: 'Integración con otras criptomonedas', icon: FaExchangeAlt },
-    { title: 'Implementación de contratos', icon: FaFileContract },
+  const currentEra = 1 // 1 for pre-launch, 2 for post-launch, 3 for future era
+  const isMobile = useBreakpointValue({ base: true, md: false });
+
+  const eras = [
+    { title: 'Pre-Salida', 
+      description: 'Etapa antes del lanzamiento oficial, reconociendo el mercado y como asentarnos como marca antes de salir con nuestros productos', 
+      color: 'blue.500' 
+    },
+    { title: 'Post-Salida', description: 'Después del lanzamiento, en desarrollo', color: 'green.500' },
+    { title: 'Futuro', description: 'Próxima era', color: 'gray.500' },
   ];
 
   return (
-    <Box display="flex" flexDir="column" minHeight="100vh" alignItems="center" justifyContent="center">
-      <Box textAlign="center">
-        <Heading size="2xl">Roadmap</Heading>
-        <Box mt={4}>
-          <HStack spacing={3}>
-            {steps.map((step, index) => (
+    <Box display="flex" flexDir="column" minHeight="100vh" alignItems="center" justifyContent="flex-start">
+      <Heading size="2xl" textAlign="center" mb={4}>
+        Línea temporal de Busy
+      </Heading>
+      <Text size="lxl" textAlign={"center"}>
+        Descubrí acontecimientos de la marca, en donde estamos y hacia dónde vamos.
+      </Text>
+      <HStack spacing={8} flexDir={isMobile ? 'column' : 'row'} alignItems="center">
+        {eras.map((era, index) => (
+          <Box
+            key={index}
+            display="flex"
+            flexDir="column"
+            alignItems="center"
+            position="relative"
+          >
+            <Tooltip label={era.description} aria-label={era.description}>
               <Box
-                key={index}
-                display="flex"
-                flexDir="column"
-                alignItems="center"
-                position="relative"
-                animation={`moveUpDown 2s infinite ${index * 0.5}s`}
-              >
-                <Box
-                  as={step.icon}
-                  boxSize="50px"
-                  borderRadius="full"
-                  color="gray.500"
-                  bg="gray.200"
-                  p={2}
-                  position="relative"
-                >
-                  {index !== steps.length - 1 && (
-                    <Box
-                      position="absolute"
-                      top="50%"
-                      left="100%"
-                      transform="translateY(-50%)"
-                      width="50%"
-                      height="2px"
-                      bg="gray.500"
-                    />
-                  )}
-                </Box>
-                <Text fontSize="lg" mt={2}>
-                  {step.title}
-                </Text>
-              </Box>
-            ))}
-          </HStack>
-        </Box>
-        <Box mt={4}>
-          <svg width="100%" height="2">
-            <line x1="0" y1="1" x2="100%" y2="1" stroke="gray" strokeWidth="2" />
-          </svg>
-        </Box>
-      </Box>
+                width="10px"
+                height="10px"
+                borderRadius="50%"
+                bg={currentEra >= index + 1 ? era.color : 'gray.300'}
+                mb={2}
+              />
+            </Tooltip>
+            <Text fontSize="lg">{era.title}</Text>
+            {index < eras.length - 1 && (
+              <Box
+                width={isMobile ? '2px' : '100px'}
+                height={isMobile ? '50px' : '2px'}
+                bg={currentEra >= index + 1 ? era.color : 'gray.300'}
+              />
+            )}
+          </Box>
+        ))}
+      </HStack>
     </Box>
   );
 };
