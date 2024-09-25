@@ -17,8 +17,9 @@ const MenuButton = ({ onClick }: { onClick: () => void }) => {
   return (
     <Box
       onClick={handleClick}
-      width="50px"
-      height="50px"
+      position={"fixed"}
+      width={{base: "60px", md:"50px"}}
+      height={{base: "60px", md:"50px"}}
       display="flex"
       flexDirection="column"
       justifyContent="center"
@@ -29,7 +30,7 @@ const MenuButton = ({ onClick }: { onClick: () => void }) => {
       boxShadow={boxShadow}
       transition="all 0.3s ease"
       _hover={{ transform: 'scale(1.05)' }}
-      zIndex="999"
+      zIndex={1001}
     >
       <Box
         as="span"

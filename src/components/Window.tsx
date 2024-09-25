@@ -1,10 +1,10 @@
 import React, { useEffect, useState, ReactNode } from 'react';
-import { Box } from '@chakra-ui/react';
+import { Box, ResponsiveValue } from '@chakra-ui/react';
 
 interface WindowProps {
   children: ReactNode;
   fadeTime: number;  // Tiempo personalizado de fade
-  height?: string; // Altura personalizada
+  height?: ResponsiveValue<number | string>; 
 }
 
 const Window: React.FC<WindowProps> = ({ children, fadeTime, height }) => {
@@ -25,7 +25,7 @@ const Window: React.FC<WindowProps> = ({ children, fadeTime, height }) => {
 
   return (
     <Box
-      height= {height}
+      height={height}
       display="flex"
       justifyContent="center"
       alignItems="center"

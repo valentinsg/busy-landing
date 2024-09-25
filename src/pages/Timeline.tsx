@@ -2,7 +2,7 @@ import { Box, Heading, Text, HStack } from '@chakra-ui/react';
 import { FaCoins, FaCogs, FaExchangeAlt, FaFileContract } from 'react-icons/fa';
 import React from 'react';
 
-const Roadmap = () => {
+const Timeline = () => {
   const steps = [
     { title: 'Lanzamiento de la moneda', icon: FaCoins },
     { title: 'Desarrollo de la plataforma', icon: FaCogs },
@@ -32,7 +32,20 @@ const Roadmap = () => {
                   color="gray.500"
                   bg="gray.200"
                   p={2}
-                />
+                  position="relative"
+                >
+                  {index !== steps.length - 1 && (
+                    <Box
+                      position="absolute"
+                      top="50%"
+                      left="100%"
+                      transform="translateY(-50%)"
+                      width="50%"
+                      height="2px"
+                      bg="gray.500"
+                    />
+                  )}
+                </Box>
                 <Text fontSize="lg" mt={2}>
                   {step.title}
                 </Text>
@@ -50,4 +63,4 @@ const Roadmap = () => {
   );
 };
 
-export default Roadmap;
+export default Timeline;

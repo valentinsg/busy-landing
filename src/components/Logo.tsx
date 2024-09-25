@@ -85,8 +85,8 @@ const Logo: React.FC = () => {
       }}
     >
       <Image
-        ml={10}
-        w="685px"
+        ml={{base: 2, md: 6}}
+        w={{base: "99%", md:"750px"}}
         src={logoSrc}
         alt="Logo Busy"
         transition="opacity 0.3s ease"
