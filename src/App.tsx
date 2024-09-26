@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import { Box, Flex, useDisclosure } from '@chakra-ui/react';
 import Home from './pages/Home';
 import Timeline from './pages/Timeline';
@@ -10,9 +10,11 @@ import MenuButton from './components/MenuButton';
 import MenuOverlay from './components/MenuOverlay';
 import Sidebar from './components/Sidebar';
 import Preaccess from './pages/PreAccess';
+import SpecialThanks from './pages/SpecialThanks';
 
-function App() {
+function AppContent() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const location = useLocation();
 
   const handleMenuToggle = () => {
     if (isOpen) {
@@ -22,37 +24,48 @@ function App() {
     }
   };
 
+  const isSpecialThanksPage = location.pathname === '/special-thanks';
+
   return (
-    <Router>
-      <Flex>
-        {/* Left Sidebar */}
-        <Box >
+    <Flex>
+      {/* Left Sidebar */}
+        <Box>
           <Sidebar />
         </Box>
 
-        {/* Main Content Area */}
-        <Box flex={1}>
+      {/* Main Content Area */}
+      <Box flex={1}>
+        {!isSpecialThanksPage && (
           <Flex justifyContent="flex-end" mr={12} mt={12}>
             {/* Menu Button aligned to the right */}
             <MenuButton onClick={handleMenuToggle} />
           </Flex>
+        )}
 
-          {/* Routes */}
-          <Box p={4}>
-            <Routes>
-              <Route path="/home" element={<Home />} />
-              <Route path="/Timeline" element={<Timeline />} />
-              <Route path="/procesos" element={<Procesos />} />
-              <Route path="/comunidad" element={<Comunidad />} />
-              <Route path="/feedback" element={<Feedback />} />
-              <Route path="/preaccess" element={<Preaccess />} />
-            </Routes>
-          </Box>
+        {/* Routes */}
+        <Box p={4}>
+          <Routes>
+            <Route path="/home" element={<Home />} />
+            <Route path="/timeline" element={<Timeline />} />
+            <Route path="/procesos" element={<Procesos />} />
+            <Route path="/comunidad" element={<Comunidad />} />
+            <Route path="/feedback" element={<Feedback />} />
+            <Route path="/preaccess" element={<Preaccess />} />
+            <Route path="/special-thanks" element={<SpecialThanks />} />
+          </Routes>
         </Box>
+      </Box>
 
-        {/* Menu Overlay */}
-        <MenuOverlay isOpen={isOpen} onClose={onClose} />
-      </Flex>
+      {/* Menu Overlay */}
+      {!isSpecialThanksPage && <MenuOverlay isOpen={isOpen} onClose={onClose} />}
+    </Flex>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }
