@@ -14,11 +14,12 @@ const SpecialThanks = () => {
       minHeight="95vh"
       p={8}
       textAlign="center"
-      bg={colorMode === "dark" ? "brand.dark" : "brand.light"}
+      bg={colorMode === "dark" ? "brand.dark" : "brand.light"} 
+      overflow={{ base: 'hidden', md: 'hidden' }}
     >
         <Logo />
       <VStack spacing={8} maxWidth="890px">
-        <Text fontSize="2xl" lineHeight="tall" fontFamily="text">
+        <Text fontSize="2xl" lineHeight="tall">
           Si te interesa saber quiénes somos, qué hacemos y cómo lo hacemos, te invitamos a que continúes explorando.
           Siempre tenemos algo preparado para la gente busy
         </Text>
