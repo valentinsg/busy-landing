@@ -1,24 +1,31 @@
 import React from 'react';
-import { Box } from '@chakra-ui/react';
+import { Box} from '@chakra-ui/react';
 import Window from '../components/Window';
 import TextScroll from '../components/TextScroll';
 import Logo from '../components/Logo';
+import ContentScroll from '../components/ContentScroll';
+import Creadores from '../img/creadores.jpg';
 
 const Home: React.FC = () => {
   return (
     <Box display={"flex"} flexDir={"column"} minHeight="100vh" scrollBehavior={"smooth"}>
-      {/* Pasamos un tiempo personalizado a cada Window */}
-      <Window fadeTime={250} height={"85vh"}>
+      {/* Primera ventana con el logo */}
+      <Window fadeTime={450} height={"85vh"}>
         <Logo />
       </Window>
-      <Window fadeTime={650} height='45vh'>
-        <TextScroll text="Bienvenido a Busy, la marca para los que nunca se detienen." />
+
+      {/* Segunda ventana con la imagen, que solo aparece cuando la primera desaparece */}
+      <Window fadeTime={4500} height='85vh'>
+
+        <ContentScroll content={Creadores} />
       </Window>
-      <Window fadeTime={1000} height='400px'>
+
+      {/* Tercera ventana con el texto */}
+      <Window fadeTime={1300} height='400px'>
         <TextScroll text="Explora nuestros productos únicos." />
       </Window>
     </Box>
-  ); 
+  );
 }
 
 export default Home;

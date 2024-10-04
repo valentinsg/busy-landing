@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, VStack, Text } from '@chakra-ui/react';
+import { Box, VStack, Text, Badge } from '@chakra-ui/react';
 import './MenuOverlay.css';
 import { Link } from 'react-router-dom';
 import DarkModeButton from './DarkModeButton';
@@ -31,16 +31,20 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
       justifyContent="center"
       alignItems="center"
       className='menu-overlay'
-
     >
-      {/* Botones de la sidebar en mobile */}
       <VStack spacing={8} color="white" textAlign="center">
-        <Text fontSize="2xl" cursor="pointer"><Link to="/home" onClick={onClose}>Home</Link></Text>
-        <Text fontSize="2xl" cursor="pointer"><Link to="/Timeline" onClick={onClose}>Línea temporal</Link></Text>
-        <Text fontSize="2xl" cursor="pointer"><Link to="/procesos" onClick={onClose}>Procesos</Link></Text>
-        <Text fontSize="2xl" cursor="pointer"><Link to="/comunidad" onClick={onClose}>Comunidad</Link></Text>
-        <Text fontSize="2xl" cursor="pointer"><Link to="/feedback" onClick={onClose}>Espacio para Feedback</Link></Text>
+        <Text fontSize="2xl" cursor="pointer"><Link to="/home" onClick={onClose}>Casita</Link></Text>
         <Text fontSize="2xl" cursor="pointer"><Link to="https://www.busy.com.ar" target="_blank" rel="noopener noreferrer">Compra</Link></Text>
+        <Text fontSize="2xl" cursor="pointer" ml={14}>
+          <Link to="/nuevos-anuncios" onClick={onClose}>
+            Anuncios <Badge colorScheme="yellow" ml={1}>Nuevo</Badge>
+          </Link>
+        </Text>
+        <Text fontSize="2xl" cursor="pointer"><Link to="/procesos" onClick={onClose}>Productos</Link></Text>
+        <Text fontSize="2xl" cursor="pointer"><Link to="/timeline" onClick={onClose}>Línea temporal</Link></Text>
+        <Text fontSize="2xl" cursor="pointer"><Link to="/comunidad" onClick={onClose}>Comunidad</Link></Text>
+
+        <Text fontSize="2xl" cursor="pointer"><Link to="/feedback" onClick={onClose}>Espacio para Feedback</Link></Text>
       </VStack>
       <Box display={{ base: 'flex', md: 'none' }} mt={28} mb={-6}>
         <DarkModeButton />

@@ -44,10 +44,10 @@ const SocialButtons = () => {
         borderRadius={"100%"}
       />
       <IconButton
-        icon={<FontAwesomeIcon icon={faBagShopping} size={window.innerWidth < 768 ? '3x' : '2x'} />} // Icono de compra
+        icon={<FontAwesomeIcon icon={faBagShopping} size={window.innerWidth < 768 ? '3x' : '2x'} />} 
         aria-label={'Shop'}
         w={{ base: "50px", md: "75%" }}
-        onClick={() => window.open('https://www.busy.com.ar/shop')} // Cambia el enlace al de la tienda
+        onClick={() => window.open('https://www.busy.com.ar/')} 
         color={iconColor}
         bg="transparent"
         _hover={{

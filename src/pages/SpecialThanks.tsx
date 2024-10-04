@@ -20,8 +20,12 @@ const SpecialThanks = () => {
         <Logo />
       <VStack spacing={8} maxWidth="890px">
         <Text fontSize="2xl" lineHeight="tall">
-          Si te interesa saber quiénes somos, qué hacemos y cómo lo hacemos, te invitamos a que continúes explorando.
-          Siempre tenemos algo preparado para la gente busy
+          ¡Gracias por llegar hasta acá! Nos alegra que te tomes el tiempo para conocer más sobre nosotros. 
+          En <strong>Busy</strong>, queremos apoyar a quienes lo merecen.
+        </Text>
+        <Text fontSize="2xl" lineHeight="tall">
+          Si te gusta lo que ves y quieres seguir descubriendo sobre lo que hacemos, ¡te invitamos a que te unas a nuestra familia y nos sigas en nuestras redes! 
+          Siempre estamos preparando algo especial para la gente busy como vos
         </Text>
         <Link to="/home">
           <Button 

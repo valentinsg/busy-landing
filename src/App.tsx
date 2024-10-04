@@ -11,6 +11,7 @@ import MenuOverlay from './components/MenuOverlay';
 import Sidebar from './components/Sidebar';
 import Preaccess from './pages/PreAccess';
 import SpecialThanks from './pages/SpecialThanks';
+import Anuncios from './pages/Anuncios';
 
 function AppContent() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -52,6 +53,7 @@ function AppContent() {
             <Route path="/feedback" element={<Feedback />} />
             <Route path="/preaccess" element={<Preaccess />} />
             <Route path="/special-thanks" element={<SpecialThanks />} />
+            <Route path="/nuevos-anuncios" element={<Anuncios />} />
           </Routes>
         </Box>
       </Box>
