@@ -10,9 +10,10 @@ interface CardProps {
   title: string;
   backTitle: string;
   image?: string;
+  footer?: string;
 }
 
-const Card: React.FC<CardProps> = ({ icon, title, backTitle, image }) => {
+const Card: React.FC<CardProps> = ({ icon, title, backTitle, image, footer }) => {
   return (
     <div className="card">
       <div className="content">
@@ -41,7 +42,7 @@ const Card: React.FC<CardProps> = ({ icon, title, backTitle, image }) => {
                 </svg>
               </div>
               <p className="card-footer">
-                30 Mins &nbsp; | &nbsp; 1 Serving
+                {footer}
               </p>
             </div>
           </div>
@@ -49,7 +50,7 @@ const Card: React.FC<CardProps> = ({ icon, title, backTitle, image }) => {
         <div className="back">
           <div className="back-content">
             {icon && <div className="icon"><FontAwesomeIcon icon={icon} size="3x" /></div>}
-            <strong style={{ fontSize: '1.55em' }}>{title}</strong>
+            <strong style={{ fontSize: '1.55em', fontFamily: 'Helvetica' }}>{title}</strong>
           </div>
         </div>
       </div>
