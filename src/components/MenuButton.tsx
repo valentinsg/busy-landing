@@ -18,8 +18,8 @@ const MenuButton = ({ onClick }: { onClick: () => void }) => {
     <Box
       onClick={handleClick}
       position={"fixed"}
-      width={{base: "60px", md:"50px"}}
-      height={{base: "60px", md:"50px"}}
+      width={{base: "50px", md:"50px"}}
+      height={{base: "50px", md:"50px"}}
       display="flex"
       flexDirection="column"
       justifyContent="center"

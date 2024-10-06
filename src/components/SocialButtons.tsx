@@ -15,7 +15,7 @@ const SocialButtons = () => {
       gap={{ base: 10, md: 0 }}
     >
       <IconButton
-        icon={<FontAwesomeIcon icon={faTiktok} size={window.innerWidth < 768 ? '3x' : '2x'} />}
+        icon={<FontAwesomeIcon icon={faTiktok} size={window.innerWidth < 768 ? '2x' : '2x'} />}
         aria-label={'TikTok'}
         w={{ base: "50px", md: "75%" }}
         onClick={() => window.open('https://www.tiktok.com/@busy.streetwear')}
@@ -29,7 +29,7 @@ const SocialButtons = () => {
         borderRadius={"100%"}
       />
       <IconButton
-        icon={<FontAwesomeIcon icon={faInstagram} size={window.innerWidth < 768 ? '3x' : '2x'} />}
+        icon={<FontAwesomeIcon icon={faInstagram} size={window.innerWidth < 768 ? '2x' : '2x'} />}
         aria-label={'Instagram'}
         w={{ base: "50px", md: "75%" }}
         onClick={() => window.open('https://www.instagram.com/busy.streetwear')}
@@ -44,7 +44,7 @@ const SocialButtons = () => {
         borderRadius={"100%"}
       />
       <IconButton
-        icon={<FontAwesomeIcon icon={faBagShopping} size={window.innerWidth < 768 ? '3x' : '2x'} />} 
+        icon={<FontAwesomeIcon icon={faBagShopping} size={window.innerWidth < 768 ? '2x' : '2x'} />} 
         aria-label={'Shop'}
         w={{ base: "50px", md: "75%" }}
         onClick={() => window.open('https://www.busy.com.ar/')} 

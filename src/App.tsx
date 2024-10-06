@@ -37,7 +37,7 @@ function AppContent() {
       {/* Main Content Area */}
       <Box flex={1}>
         {!isSpecialThanksPage && (
-          <Flex justifyContent="flex-end" mr={12} mt={12}>
+          <Flex justifyContent="flex-end" mr={12} mt={{base: 14, md:12}}>
             {/* Menu Button aligned to the right */}
             <MenuButton onClick={handleMenuToggle} />
           </Flex>

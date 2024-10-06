@@ -4,7 +4,6 @@ import Window from '../components/Window';
 import TextScroll from '../components/TextScroll';
 import Logo from '../components/Logo';
 import ContentScroll from '../components/ContentScroll';
-import Creadores from '../img/creadores.jpg';
 
 const Home: React.FC = () => {
   return (
@@ -15,9 +14,8 @@ const Home: React.FC = () => {
       </Window>
 
       {/* Segunda ventana con la imagen, que solo aparece cuando la primera desaparece */}
-      <Window fadeTime={4500} height='85vh'>
-
-        <ContentScroll content={Creadores} />
+      <Window fadeTime={4500} height='60vh'>
+        <ContentScroll/>
       </Window>
 
       {/* Tercera ventana con el texto */}
